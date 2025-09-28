@@ -9,9 +9,10 @@ VisNEB is a tiny toolkit to visualize **ORCA NEB** calculations from **multi-XYZ
 
 ## Hermite (PCHIP-like) smoothing
 VisNEB draws a **cubic Hermite** curve between images using data-driven node slopes so the curve is **shape-preserving** (no spurious oscillations):
-- Let the interval secants be \( \delta_i = (y_{i+1}-y_i)/(x_{i+1}-x_i) \).  
-- At local extrema or sign changes (\( \delta_{i-1}\,\delta_i \le 0 \)), set \( m_i = 0 \) to avoid wiggles.
-- Otherwise choose \( m_i \) as a **weighted harmonic mean** of \( \delta_{i-1},\delta_i \); endpoints are clipped (\( |m| \le 3|\delta| \)).  
+- Let the interval secants be $\delta_i = \frac{y_{i+1}-y_i}{x_{i+1}-x_i}$. 
+- At local extrema or sign changes ($\delta_{i-1}\,\delta_i \le 0$), set $m_i = 0$ to avoid wiggles.
+- Otherwise choose $m_i$ as a weighted harmonic mean of $\delta_{i-1}$ and $\delta_i$; endpoints are clipped ($|m_i| \le 3|\delta|$).
+
 These are the classical **PCHIP** conditions; they keep the interpolant monotone where the data are monotone and prevent overshoot.
 
 ## Input

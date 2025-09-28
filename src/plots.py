@@ -220,7 +220,6 @@ def plot_path(multixyz: PathMultiXYZ) -> None:
     ax.set_ylabel("Energy [Ha]", fontsize=12)
     ax.set_title(f"Iter.: 0 to {n - 1}" if n > 1 else "Iter.: 0")
     fig.tight_layout()
-    plt.show()
 
 def plot_paths(multipath: MultiPathSet) -> None:
     if len(multipath) == 0:
@@ -242,4 +241,3 @@ def plot_paths(multipath: MultiPathSet) -> None:
     ax.set_ylabel("Energy [Ha]", fontsize=12)
     ax.set_title(f"Iter.: 0 to {n - 1}" if n > 1 else "Iter.: 0")
     fig.tight_layout()
-    plt.show()

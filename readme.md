@@ -26,3 +26,12 @@ python visneb.py paths --xyz many_paths.xyz --nodes-per-path 14
 
 # Save instead of show
 python visneb.py paths --xyz many_paths.xyz --nodes-per-path 14 --save plots/neb.png
+```
+
+## Example output
+Running with the added example `./test/test.xyz`
+```bash
+python visneb.py paths --xyz ./test/test.xyz --nodes-per-path 14 --dpi 200 --save ./fig/example.png
+```
+Given an output of the figure:
+![Example](./fig/example.png "Example")

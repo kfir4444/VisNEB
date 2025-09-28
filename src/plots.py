@@ -181,14 +181,17 @@ def _plot_one_path(ax, x_nodes: List[float], y_nodes: List[float], idx: int, n_p
     """Legacy styling: first=black, middle=gray, last=red."""
     if idx == 0:
         color = (0.0, 0.0, 0.0); lw, ms = 1.2, 6.0
+        label = "First Iteration"
     elif idx == n_paths - 1:
         color = (0.6, 0.0, 0.0); lw, ms = 1.5, 8.0
+        label = "Converged"
     else:
         color = (0.4, 0.4, 0.4); lw, ms = 1.0, 4.0
+        label = ""
 
     # Smooth densified line (legacy "spline" vibe)
     xs_s, ys_s = _densify_curve(x_nodes, y_nodes, points_per_seg=30)
-    ax.plot(xs_s, ys_s, '-', color=color, linewidth=lw)
+    ax.plot(xs_s, ys_s, '-', color=color, linewidth=lw, label=label)
 
     # Original image points
     ax.plot(x_nodes, y_nodes, '.', color=color, markersize=ms)
@@ -212,6 +215,7 @@ def plot_path(multixyz: PathMultiXYZ) -> None:
             continue
         _plot_one_path(ax, xs2, ys2, i, n)
 
+    ax.legend(loc="best")
     ax.set_xlabel(f"Displacement [{xunit}]", fontsize=12)
     ax.set_ylabel("Energy [Ha]", fontsize=12)
     ax.set_title(f"Iter.: 0 to {n - 1}" if n > 1 else "Iter.: 0")
@@ -233,7 +237,7 @@ def plot_paths(multipath: MultiPathSet) -> None:
         if len(xs2) < 2:
             continue
         _plot_one_path(ax, xs2, ys2, i, n)
-
+    ax.legend(loc="best")
     ax.set_xlabel(f"Displacement [{xunit}]", fontsize=12)
     ax.set_ylabel("Energy [Ha]", fontsize=12)
     ax.set_title(f"Iter.: 0 to {n - 1}" if n > 1 else "Iter.: 0")

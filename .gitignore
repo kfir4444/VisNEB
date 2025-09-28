@@ -1,36 +1,41 @@
 ################################################################################
-#
 #   Files for git to ignore
-#
 ################################################################################
 
-# MacOS files
+# OS/editor
 .DS_Store
+.vscode/
+.idea/
 
-# Compiled Python modules
-*.pyc
+# Virtual envs
+venv/
+.venv/
+env/
+
+# Python bytecode & caches
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
 *.so
 *.pyd
 *.c
 *.o
-*.html
 
-# PyCharm project files
-.idea/*
-venv/
-
-# VS Code Local History files
-.history/*
-
-# Unit test files
+# Test/coverage artifacts
 .coverage
-testing/*
-htmlcov/*
+htmlcov/
+testing/
 
-# .vscode
-.vscode
-
+# Logs & misc
 *.log
 *.xml
-*/plot/*
-*/__pycache__/*
+
+# Plot outputs (match both 'plot' and 'plots' anywhere)
+plots/
+plot/
+**/plots/
+**/plot/
+
